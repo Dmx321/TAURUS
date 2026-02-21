@@ -1,10 +1,12 @@
 import { motion } from "motion/react";
-import { Github, Instagram, Linkedin, Mail } from "lucide-react";
+import { Container } from "../common/Container";
+import { ContactForm } from "./Contact/ContactForm";
+import { SocialLinks } from "./Contact/SocialLinks";
 
 export const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-taurus-lime text-taurus-dark">
-      <div className="container mx-auto px-6 text-center">
+      <Container className="text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,24 +26,13 @@ export const Contact = () => {
           </a>
         </div>
 
-        <div className="flex justify-center gap-8">
-          {[
-            { icon: <Linkedin />, label: "LinkedIn" },
-            { icon: <Instagram />, label: "Instagram" },
-            { icon: <Github />, label: "GitHub" },
-            { icon: <Mail />, label: "Email" }
-          ].map((social) => (
-            <motion.a
-              key={social.label}
-              whileHover={{ y: -5 }}
-              href="#"
-              className="w-12 h-12 rounded-full border border-taurus-dark flex items-center justify-center hover:bg-taurus-dark hover:text-taurus-lime transition-all"
-            >
-              {social.icon}
-            </motion.a>
-          ))}
+        <div className="mb-24">
+          <h3 className="text-xs font-mono uppercase tracking-[0.3em] mb-12">Send a Direct Message</h3>
+          <ContactForm />
         </div>
-      </div>
+
+        <SocialLinks />
+      </Container>
     </section>
   );
 };
